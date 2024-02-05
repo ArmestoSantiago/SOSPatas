@@ -13,7 +13,7 @@
     "vite": "^5.0.8"
   },
   "description": "Aplicación para busqueda de mascotas perdidas/abandonadas",
-  "main": "main.js",
+  "main": "main.jsx",
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "esbuild": "^0.19.12",
@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/ArmestoSantiago/SOSPatas/issues"
   },
-  "homepage": "https://github.com/ArmestoSantiago/SOSPatas#readme"
+  "homepage": "https://github.com/ArmestoSantiago/SOSPatas#readme",
+  "eslintConfig": {
+    "extends": "./node_modules/semistandard/eslintrc.json"
+  }
 }
