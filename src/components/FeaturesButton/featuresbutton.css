@@ -1,0 +1,27 @@
+.buttons-container {
+    position: absolute;
+    z-index: 999;
+    
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    left: 50%;
+    bottom: 3%;
+    transform: translate(-50%, 0);
+}
+
+.features__button {
+    border-radius: 50%;
+    background-color: #fff ;
+    border: 1px solid #ccc;
+}
+
+.main__button {
+    padding: 32px;
+}
+
+.redirect-location__button {
+    padding: 24px;
+   
+}

@@ -1,0 +1,29 @@
+.input-container {
+    position: absolute;
+    z-index: 999;
+
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%, 0);
+}
+
+.input__form {
+    display: flex;
+    align-items: center;
+    gap: .4rem
+}
+
+.input__search {
+    width: 280px;
+    padding: 1.2rem 3.6rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.search__button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}

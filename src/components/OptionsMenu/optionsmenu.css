@@ -1,0 +1,14 @@
+.menu {
+    position: absolute;
+    z-index: 999;
+    top: 3%;
+    right: 1%;
+
+
+    width: 8.4rem;
+    height: 6.2rem;
+    background-color: #fff;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
