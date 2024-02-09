@@ -5,7 +5,9 @@ export function useGetLocation() {
   const [error, setError] = useState(null);
 
   const onSucces = (position) => {
-    setLocation([position.coords.latitude, position.coords.longitude]);
+    const { latitude: lat } = position.coords;
+    const { longitude: lng } = position.coords;
+    setLocation([lat, lng]);
   };
 
   const onError = () => {
