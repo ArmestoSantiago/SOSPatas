@@ -1,16 +1,27 @@
-import { MapContainer } from 'react-leaflet/MapContainer';
-import { TileLayer } from 'react-leaflet/TileLayer';
+import {
+  APIProvider,
+  Map as GoogleMap,
+  AdvancedMarker,
+  Pin,
+  InfoWindow
+} from '@vis.gl/react-google-maps';
 
+import { useMemo } from 'react';
 import './map.css';
 
-export function Map ({ coordenates }) {
-  if (coordenates.length === 0) return null;
+export function Map ({ coordenates, error }) {
+  if (error) return null;
+
+  const options = useMemo(() => ({
+    disableDefaultUI: true,
+    clickableIcons: false
+  }), []);
+
   return (
-    <MapContainer id='map' center={coordenates} zoom={13} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-    </MapContainer>
+    <APIProvider apiKey='AIzaSyBiBjfqdenY-yYtegC9pkMkqs777R8Ubb8'>
+      <div style={{ height: '100vh' }}>
+        <GoogleMap zoom={13} center={coordenates} options={options} />
+      </div>
+    </APIProvider>
   );
 }
