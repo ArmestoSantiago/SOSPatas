@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 
 export function useGetLocation() {
   const [location, setLocation] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(true);
 
   const onSucces = (position) => {
-    const { latitude: lat } = position.coords;
-    const { longitude: lng } = position.coords;
-    setLocation([lat, lng]);
+    const coords = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    setLocation(coords);
+    setError(false);
   };
 
   const onError = () => {
