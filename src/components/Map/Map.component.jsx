@@ -1,27 +1,18 @@
-import {
-  APIProvider,
-  Map as GoogleMap,
-  AdvancedMarker,
-  Pin,
-  InfoWindow
-} from '@vis.gl/react-google-maps';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
-import { useMemo } from 'react';
-import './map.css';
+const API_KEY = import.meta.env.VITE_GOOGLEMAP_APIKEY;
 
-export function Map ({ coordenates, error }) {
-  if (error) return null;
-
-  const options = useMemo(() => ({
-    disableDefaultUI: true,
-    clickableIcons: false
-  }), []);
+export function Map ({ coords, error }) {
+  if (error) return;
 
   return (
-    <APIProvider apiKey='AIzaSyBiBjfqdenY-yYtegC9pkMkqs777R8Ubb8'>
-      <div style={{ height: '100vh' }}>
-        <GoogleMap zoom={13} center={coordenates} options={options} />
-      </div>
-    </APIProvider>
+    <div style={{ height: '100vh', width: '100%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: API_KEY }}
+        center={coords}
+        zoom={14}
+      />
+    </div>
   );
 }
