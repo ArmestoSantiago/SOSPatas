@@ -7,13 +7,9 @@ import { useGetLocation } from './hooks/useGetLocation/useGetLocation';
 
 export function App () {
   const { location, error } = useGetLocation();
+  console.log(location);
 
   return (
-    <main>
-      <SearchInput />
-      <FeaturesButtons />
-      <OptionsMenu />
-      <Map coordenates={location} />
-    </main>
+    <main />
   );
 }
