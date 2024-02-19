@@ -11,12 +11,12 @@ export function FeaturesButtons () {
 
 export function RedirectLocationButton () {
   return (
-    <button className='features__button redirect-location__button ' />
+    <button className='features__button redirect-location__button shadow--box' />
   );
 }
 
 export function MainButton () {
   return (
-    <button className='features__button main__button' />
+    <button className='features__button main__button shadow--box' />
   );
 }

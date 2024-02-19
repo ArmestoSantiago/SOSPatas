@@ -1,6 +1,6 @@
 import './optionsmenu.css';
 export function OptionsMenu () {
   return (
-    <div className='menu' />
+    <div className='menu shadow--box' />
   );
 }
