@@ -11,7 +11,7 @@ export function Map ({ coords, error }) {
 
   const centerCoords = cityCoords !== false ? cityCoords : coords;
 
-  console.log(centerCoords);
+
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
