@@ -1,11 +1,4 @@
-.input-container {
-    position: absolute;
-    z-index: 999;
 
-    left: 50%;
-    top: 3%;
-    transform: translate(-50%, 0);
-}
 
 .input__form {
     display: flex;
@@ -26,4 +19,8 @@
     border-radius: 50%;
     background-color: #fff;
     border: 1px solid #ccc;
+}
+
+button {
+	cursor: pointer;
 }

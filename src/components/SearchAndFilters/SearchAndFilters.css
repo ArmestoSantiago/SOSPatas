@@ -1,0 +1,12 @@
+.container-search-filters {
+	position: absolute;
+    z-index: 999;
+
+    left: 50%;
+    top: 3%;
+
+	display: flex;
+	gap: 2.4rem;
+
+	transform: translate(-50%, 0);
+}
