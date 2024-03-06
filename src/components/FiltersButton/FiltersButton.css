@@ -1,0 +1,13 @@
+.container-filters-buttons {
+	display: flex;
+	gap: 12px
+}
+
+.buttons-style {
+	padding: .8rem 1.8rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+
