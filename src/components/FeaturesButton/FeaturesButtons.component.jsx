@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { AddAnimalLocationIcon } from '../icons/icons';
 import './FeaturesButton.css';
-import { AddLocationContext } from '../../context/AddLocation';
+import { AddLocationContext } from '../../context/CrossHairContext';
 
 export function FeaturesButtons () {
   return (
@@ -20,11 +20,11 @@ export function RedirectLocationButton () {
 }
 
 export function AddNewLocatedAnimal () {
-  const { setOpenModal } = useContext(AddLocationContext);
+  const { setCrosshairCursor } = useContext(AddLocationContext);
 
   const handleClick = (e) => {
     e.preventDefault();
-    setOpenModal(true);
+    setCrosshairCursor(true);
   };
   return (
     <button
