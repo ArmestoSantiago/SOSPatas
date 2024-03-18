@@ -1,5 +1,6 @@
-import { useId } from 'react';
+import { useContext, useId } from 'react';
 import './AddLocationModal.css';
+import { AnimalContext } from '../../context/AnimalsContext';
 
 export function AddLocationModal ({ openModal, setOpenModal }) {
   const animalTypeId = useId();
@@ -7,6 +8,7 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
   const animalConditionId = useId();
   const descriptionId = useId();
   const imageId = useId();
+  const { setAnimals, animalsLocation } = useContext(AnimalContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +16,18 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
 
     const fields = Object.fromEntries(new window.FormData(e.target));
 
-    console.log(fields);
+    setAnimals(prevState => ([
+      ...prevState,
+      {
+        type: fields.animalType,
+        condition: fields.condition,
+        state: fields.state,
+        location: {
+          lat: animalsLocation.lat,
+          lng: animalsLocation.lng
+        }
+      }
+    ]));
   };
 
   return (
@@ -50,7 +63,7 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
           <input type='file' id={imageId} name='animalImage' accept='image/*' />
         </div>
         <div className='description-box'>
-          <label htmlFor={descriptionId}>Describe algo del animal</label>
+          <label required htmlFor={descriptionId}>Describe algo del animal</label>
           <textarea id={descriptionId} className='description-text' type='text' name='descripcion' placeholder='color, comportamiento, raza, situación...' />
         </div>
         <div />

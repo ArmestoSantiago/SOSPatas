@@ -4,11 +4,14 @@ export const AnimalContext = createContext();
 
 export function AnimalContextProvider ({ children }) {
   const [animals, setAnimals] = useState([]);
+  const [animalsLocation, setAnimalsLocation] = useState({});
 
   return (
     <AnimalContext.Provider value={{
       animals,
-      setAnimals
+      setAnimals,
+      animalsLocation,
+      setAnimalsLocation
     }}
     >
       {children}
