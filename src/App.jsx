@@ -5,7 +5,6 @@ import { SearchCityProvider } from './context/SearchCity';
 import { AddLocationProvider } from './context/CrossHairContext';
 import { AddLocationModal } from './components/AddLocationModal/AddLocationModal.component';
 import { useState } from 'react';
-import { AnimalContextProvider } from './context/AnimalsContext';
 
 export function App () {
   const { location, error } = useGetLocation();
@@ -15,14 +14,12 @@ export function App () {
     <main>
       <SearchCityProvider>
         <AddLocationProvider>
-          <AnimalContextProvider>
-            <Map coords={location} error={error} openModal={openModal} setOpenModal={setOpenModal} />
-            <NavigationOptions />
-            {openModal && <AddLocationModal
-              openModal={openModal}
-              setOpenModal={setOpenModal}
-                          />}
-          </AnimalContextProvider>
+          <Map coords={location} error={error} setOpenModal={setOpenModal} />
+          <NavigationOptions />
+          {openModal && <AddLocationModal
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+                        />}
         </AddLocationProvider>
       </SearchCityProvider>
     </main>
