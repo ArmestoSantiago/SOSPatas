@@ -1,5 +1,5 @@
 import { FiltersButton } from '../FiltersButton/FiltersButton';
-import { SearchInput } from '../SearchInput/SearchInput.component';
+import { SearchInput } from '../../SearchInput/SearchInput.component';
 import './SearchAndFilters.css';
 
 export function SearchAndFilters () {

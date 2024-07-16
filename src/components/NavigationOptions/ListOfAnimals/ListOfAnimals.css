@@ -1,0 +1,7 @@
+.animal-list__container {
+    height: 100vh;
+    width: 120em;
+    background-color: aqua;
+    position: absolute;
+
+}

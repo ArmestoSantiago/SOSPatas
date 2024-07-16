@@ -1,6 +1,6 @@
-import { useId } from 'react';
+import { useContext, useId } from 'react';
 import './AddLocationModal.css';
-
+import { AnimalContext } from '../../context/AnimalsContext';
 export function AddLocationModal ({ openModal, setOpenModal }) {
   const animalTypeId = useId();
   const animalStateId = useId();
@@ -8,13 +8,29 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
   const descriptionId = useId();
   const imageId = useId();
 
+  const { setAnimals } = useContext(AnimalContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setOpenModal(false);
 
+
+
     const fields = Object.fromEntries(new window.FormData(e.target));
 
-    console.log(fields);
+
+    setAnimals(prevState => [
+      ...prevState,
+      {
+        location: openModal.coords,
+        animalType: fields.animalType,
+        condition: fields.condition,
+        state: fields.state,
+        description: fields.description
+      }
+    ]);
+
+
   };
 
   return (

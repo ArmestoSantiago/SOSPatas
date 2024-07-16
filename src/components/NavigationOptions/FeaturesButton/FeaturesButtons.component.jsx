@@ -1,8 +1,8 @@
 
 import { useContext } from 'react';
-import { AddAnimalLocationIcon } from '../icons/icons';
+import { AddAnimalLocationIcon } from '../../icons/icons';
 import './FeaturesButton.css';
-import { AddLocationContext } from '../../context/CrossHairContext';
+import { AddLocationContext } from '../../../context/CrossHairContext';
 
 export function FeaturesButtons () {
   return (
@@ -15,7 +15,7 @@ export function FeaturesButtons () {
 
 export function RedirectLocationButton () {
   return (
-    <button className='features__button redirect-location__button shadow--box' />
+    <button className='features__button      redirect-location__button shadow--box' />
   );
 }
 
