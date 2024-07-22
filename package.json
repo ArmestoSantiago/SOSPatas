@@ -24,6 +24,7 @@
   "description": "Aplicación para busqueda de mascotas perdidas/abandonadas",
   "main": "main.jsx",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.6",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@vitejs/plugin-react": "^4.2.1",
     "config": "^3.3.11",
@@ -35,7 +36,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "^4.9.6",
-    "source-map-js": "^1.0.2"
+    "source-map-js": "^1.0.2",
+    "uuid": "^10.0.0"
   },
   "repository": {
     "type": "git",
