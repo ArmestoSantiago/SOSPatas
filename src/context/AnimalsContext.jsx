@@ -3,12 +3,12 @@ import { createContext, useState } from 'react';
 export const AnimalContext = createContext();
 
 export function AnimalContextProvider ({ children }) {
-  const [animals, setAnimals] = useState([]);
+  const [lostAnimalsList, setLostAnimalsList] = useState([]);
 
   return (
     <AnimalContext.Provider value={{
-      animals,
-      setAnimals
+      lostAnimalsList,
+      setLostAnimalsList
     }}
     >
       {children}

@@ -16,9 +16,7 @@ export function Map ({ coords, error, setOpenModal }) {
   const centerCoords = cityCoords !== false ? cityCoords : coords;
 
 
-  const { animals } = useContext(AnimalContext);
-
-  console.log(animals);
+  const { lostAnimalsList } = useContext(AnimalContext);
 
 
 
@@ -52,7 +50,7 @@ export function Map ({ coords, error, setOpenModal }) {
         options={MAP_OPTIONS(crosshairCursor)}
         zoom={14}
       >
-        {animals.map(({ location }, index) => {
+        {lostAnimalsList.map(({ location }, index) => {
           return <AnimalLocation key={index} lat={location.lat} lng={location.lng} />;
         })}
       </GoogleMapReact>

@@ -1,6 +1,10 @@
 import { useContext, useId } from 'react';
 import './AddLocationModal.css';
 import { AnimalContext } from '../../context/AnimalsContext';
+import { getAddress } from '../../utils/useInverseGeocoding/getAddress';
+import { getKey } from '../../utils/getKey';
+
+
 export function AddLocationModal ({ openModal, setOpenModal }) {
   const animalTypeId = useId();
   const animalStateId = useId();
@@ -8,29 +12,30 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
   const descriptionId = useId();
   const imageId = useId();
 
-  const { setAnimals } = useContext(AnimalContext);
+  const { setLostAnimalsList } = useContext(AnimalContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setOpenModal(false);
 
+    const { lat, lng } = openModal.coords;
 
+    const address = await getAddress(lat, lng);
 
     const fields = Object.fromEntries(new window.FormData(e.target));
 
-
-    setAnimals(prevState => [
+    setLostAnimalsList(prevState => [
       ...prevState,
       {
+        key: getKey(),
         location: openModal.coords,
         animalType: fields.animalType,
         condition: fields.condition,
         state: fields.state,
-        description: fields.description
+        description: fields.description,
+        address
       }
     ]);
-
-
   };
 
   return (
@@ -67,7 +72,7 @@ export function AddLocationModal ({ openModal, setOpenModal }) {
         </div>
         <div className='description-box'>
           <label htmlFor={descriptionId}>Describe algo del animal</label>
-          <textarea id={descriptionId} className='description-text' type='text' name='descripcion' placeholder='color, comportamiento, raza, situación...' />
+          <textarea maxLength="120" id={descriptionId} className='description-text' type='text' name='description' placeholder='color, comportamiento, raza, situación...' />
         </div>
         <div />
         <div type='submit' className='submit-btn '>
