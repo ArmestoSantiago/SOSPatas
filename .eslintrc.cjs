@@ -29,7 +29,6 @@ module.exports = {
         'react'
     ],
     'rules': {
-        'no-unused-vars': 'never',
         'indent': 'off',
         'linebreak-style': [
             'error',
@@ -42,6 +41,7 @@ module.exports = {
         'semi': [
             'error',
             'always'
-        ]
+        ],
+
     }
 };
